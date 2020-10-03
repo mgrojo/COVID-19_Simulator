@@ -33,6 +33,7 @@ AppImage:
 	LD_LIBRARY_PATH="$(QT_LIB_DIR):linux/qt5adax86-64/qt5adax86-64/usr/local/lib" \
       ./linuxdeploy-x86_64.AppImage \
       --executable AppDir/$(QT_LIB_DIR)/covidsim \
-	  --library linux/qt5adax86-64/qt5adax86-64/usr/local/lib/libqt5c.so \
-	  --desktop-file distri/covidsim.desktop \
-	  --appdir AppDir --output appimage
+      --library linux/qt5adax86-64/qt5adax86-64/usr/local/lib/libqt5c.so \
+      --desktop-file distri/covidsim.desktop \
+      --icon-file=distri/applications-science.png \
+      --appdir AppDir --output appimage
