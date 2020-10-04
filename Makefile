@@ -25,6 +25,7 @@ clean:
 
 AppImage:
 	mkdir -p AppDir/src/form AppDir/deps/xph_covid19/data
+	rsync -a distri/* AppDir
 	rsync -a linux AppDir
 	rsync -a src/form/*.ui AppDir/src/form
 	rsync -a deps/xph_covid19/data/*.csv AppDir/deps/xph_covid19/data 
@@ -33,5 +34,6 @@ AppImage:
 	LD_LIBRARY_PATH="$(QT_LIB_DIR):linux/qt5adax86-64/qt5adax86-64/usr/local/lib" \
       ./linuxdeploy-x86_64.AppImage \
       --executable AppDir/$(QT_LIB_DIR)/covidsim \
+      --desktop-file distri/covidsim.desktop --icon-file=distri/covidsim.png \
       --library linux/qt5adax86-64/qt5adax86-64/usr/local/lib/libqt5c.so \
       --appdir AppDir --output appimage
