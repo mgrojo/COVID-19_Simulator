@@ -1,5 +1,7 @@
 QT_VERSION = 5.15
 
+QT_LIB_DIR = linux/qt-$(QT_VERSION)x86-64/usr/local/Qt-$(QT_VERSION).0/lib
+
 all: | linux/qt5adax86-64 linux/qt-$(QT_VERSION)x86-64
 	gprbuild -p covidsim.gpr
 
@@ -14,7 +16,7 @@ linux/qt-$(QT_VERSION)x86-64:
 	tar -C linux -xf qt$(QT_VERSION)x86-64.tar.bz2
 
 run:
-	cd linux/qt-$(QT_VERSION)x86-64/usr/local/Qt-$(QT_VERSION).0/lib ; \
+	cd $(QT_LIB_DIR) ; \
     LD_LIBRARY_PATH=".:$(PWD)/linux/qt5adax86-64/qt5adax86-64/usr/local/lib" ./covidsim
 
 clean:
